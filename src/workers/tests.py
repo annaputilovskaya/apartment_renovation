@@ -11,13 +11,13 @@ class WorkerTestCase(APITestCase):
             full_name="Тест 1",
             team_id=1,
             salary=10000,
-            specialization="1"
+            specialization="rough_finish"
         )
         self.worker2 = Worker.objects.create(
             full_name="Тест 2",
             team_id=2,
             salary=10000,
-            specialization="2"
+            specialization="fine_finish"
         )
         self.worker3 = Worker.objects.create(
             full_name="Тест 3",
@@ -39,14 +39,14 @@ class WorkerTestCase(APITestCase):
                     "full_name": "Тест 1",
                     "team_id": 1,
                     "salary": 10000,
-                    "specialization": "1"
+                    "specialization": "rough_finish"
                 },
                 {
                     "id": 3,
                     "full_name": "Тест 3",
                     "team_id": 1,
                     "salary": 12000,
-                    "specialization": "3"
+                    "specialization": "brigadier"
                 }
             ]
         }

@@ -9,17 +9,17 @@ class Worker(models.Model):
     """
 
     SPECIALIZATION_CHOICES = [
-        ("1", "Черновая отделка"),
-        ("2", "Чистовая отделка"),
-        ("3", "Бригадир"),
-        ("4", "Прораб")
+        ("rough_finish", "Черновая отделка"),
+        ("fine_finish", "Чистовая отделка"),
+        ("brigadier", "Бригадир"),
+        ("forman", "Прораб")
     ]
 
     full_name = models.CharField(max_length=100, verbose_name="ФИО")
     team_id = models.PositiveSmallIntegerField(**NULLABLE, verbose_name="Номер бригады")
     salary = models.PositiveIntegerField(verbose_name="Заработная плата")
     specialization = models.CharField(
-        max_length=100, choices=SPECIALIZATION_CHOICES, default="3", verbose_name="Специализация"
+        max_length=100, choices=SPECIALIZATION_CHOICES, default="brigadier", verbose_name="Специализация"
     )
 
     class Meta:
