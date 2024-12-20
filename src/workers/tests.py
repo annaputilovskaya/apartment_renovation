@@ -8,21 +8,13 @@ from workers.models import Worker
 class WorkerTestCase(APITestCase):
     def setUp(self):
         self.worker1 = Worker.objects.create(
-            full_name="Тест 1",
-            team_id=1,
-            salary=10000,
-            specialization="rough_finish"
+            full_name="Тест 1", team_id=1, salary=10000, specialization="rough_finish"
         )
         self.worker2 = Worker.objects.create(
-            full_name="Тест 2",
-            team_id=2,
-            salary=10000,
-            specialization="fine_finish"
+            full_name="Тест 2", team_id=2, salary=10000, specialization="fine_finish"
         )
         self.worker3 = Worker.objects.create(
-            full_name="Тест 3",
-            team_id=1,
-            salary=12000
+            full_name="Тест 3", team_id=1, salary=12000
         )
 
     def test_worker_list(self):
@@ -39,16 +31,16 @@ class WorkerTestCase(APITestCase):
                     "full_name": "Тест 1",
                     "team_id": 1,
                     "salary": 10000,
-                    "specialization": "rough_finish"
+                    "specialization": "rough_finish",
                 },
                 {
                     "id": 3,
                     "full_name": "Тест 3",
                     "team_id": 1,
                     "salary": 12000,
-                    "specialization": "brigadier"
-                }
-            ]
+                    "specialization": "brigadier",
+                },
+            ],
         }
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)

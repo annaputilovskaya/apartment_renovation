@@ -14,7 +14,7 @@ class WorkerInTeamListAPIView(generics.ListAPIView):
     pagination_class = CustomPagination
 
     def get_queryset(self):
-        team_id = self.kwargs[ "team_id"]
+        team_id = self.kwargs["team_id"]
         return Worker.objects.filter(team_id=team_id)
 
 

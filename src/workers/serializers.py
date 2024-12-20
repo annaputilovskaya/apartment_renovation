@@ -10,4 +10,4 @@ class WorkerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Worker
-        fields = '__all__'
+        fields = "__all__"

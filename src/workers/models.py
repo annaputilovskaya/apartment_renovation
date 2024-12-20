@@ -12,14 +12,17 @@ class Worker(models.Model):
         ("rough_finish", "Черновая отделка"),
         ("fine_finish", "Чистовая отделка"),
         ("brigadier", "Бригадир"),
-        ("forman", "Прораб")
+        ("forman", "Прораб"),
     ]
 
     full_name = models.CharField(max_length=100, verbose_name="ФИО")
     team_id = models.PositiveSmallIntegerField(**NULLABLE, verbose_name="Номер бригады")
     salary = models.PositiveIntegerField(verbose_name="Заработная плата")
     specialization = models.CharField(
-        max_length=100, choices=SPECIALIZATION_CHOICES, default="brigadier", verbose_name="Специализация"
+        max_length=100,
+        choices=SPECIALIZATION_CHOICES,
+        default="brigadier",
+        verbose_name="Специализация",
     )
 
     class Meta:
@@ -31,5 +34,7 @@ class Worker(models.Model):
         return self.full_name
 
     def __repr__(self):
-        return (f"{self.__class__.__name__}"
-                f"({self.full_name=}, {self.team_id=}, {self.salary=}, {self.specialization=})")
+        return (
+            f"{self.__class__.__name__}"
+            f"({self.full_name=}, {self.team_id=}, {self.salary=}, {self.specialization=})"
+        )
