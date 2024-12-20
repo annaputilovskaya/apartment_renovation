@@ -1,5 +1,11 @@
-from django.urls import path, include
+from django.urls import path
+
+from api.v1.workers.views import WorkerInTeamListAPIView, WorkerDetailAPIView
+from workers.apps import WorkersConfig
+
+app_name = WorkersConfig.name
 
 urlpatterns = [
-    path('', include('api.v1.workers.urls'))
+    path('team/<int:team_id>/WorkerList/', WorkerInTeamListAPIView.as_view(), name='worker-list'),
+    path('worker/<int:pk>/', WorkerDetailAPIView.as_view(), name='worker-detail'),
 ]
