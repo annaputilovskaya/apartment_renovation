@@ -53,3 +53,10 @@ class WorkerTestCase(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(data, result)
+
+    def test_worker_retrieve(self):
+        url = reverse("v1:worker-detail", args=(self.worker1.pk,))
+        response = self.client.get(url)
+        data = response.json()
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(data.get("full_name"), self.worker1.full_name)
