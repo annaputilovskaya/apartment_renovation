@@ -1,6 +1,7 @@
 from rest_framework import generics
 
 from workers.models import Worker
+from workers.paginations import CustomPagination
 from workers.serializers import WorkerSerializer
 
 
@@ -10,6 +11,7 @@ class WorkerInTeamListAPIView(generics.ListAPIView):
     """
 
     serializer_class = WorkerSerializer
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         team_id = self.kwargs[ "team_id"]
